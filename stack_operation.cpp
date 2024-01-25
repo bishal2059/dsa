@@ -6,47 +6,50 @@ private:
     int size;
     int top;
     int *arr;
-    int item;
 public:
-    Stack(int size){
+    explicit Stack(int size){
         this->size=size;
         top = -1;
         arr = new int[size];
     }
     void push(int x){
         if(top == size-1){
-            cout<<"Stack is full"<<endl;
+            cout<<endl<<"Stack is full"<<endl;
         }else{
             top++;
-            cout<<"Element pushed "<<x<<endl;
+            cout<<endl<<"Element pushed "<<x;
             arr[top] = x;
         }
     }
     int pop(){
         if (top == -1){
-            cout<<"Stack is empty"<<endl;
+            cout<<endl<<"Stack is empty";
         }else{
-            item = arr[top];
-            cout<<"Element popped "<<item<<endl;
+            int item = arr[top];
+            cout<<endl<<"Element popped "<<item;
             top--;
             return item;
         }
     }
     void display(){
         for(int i=top;i>=0;i--){
-            cout<<arr[i]<<" "<<endl;
+            cout<<endl<<arr[i];
         }
     }
 };
 
 int main(){
-Stack s(3);
-s.push(2);
-s.push(5);
-s.push(7);
-cout<<"Element in stack:"<<endl;
-s.display();
-s.pop();
-cout<<"Element in stack:"<<endl;
-s.display();
+    Stack s(12);
+    s.push(2);
+    s.push(5);
+    s.push(7);
+    s.push(9);
+    s.push(6);
+    cout<<endl<<"Element in stack:";
+    s.display();
+    s.pop();
+    s.pop();
+    cout<<endl<<"Element in stack:";
+    s.display();
+    return 0;
 }
